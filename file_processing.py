@@ -47,7 +47,8 @@ def get_full_text(filename):
         text_list.append(paragraph.text)
     return '\n'.join(text_list)
 '''
-shape_inventory = {"paraboloid", "sheet", "ellipsoid", "cylinder", "prism", "rectangular", "slab", "elliptic"}
+shape_inventory = {"prismatoid", "pyramid", "bipyramid", "wedge", "parallelepiped", "cupola", "frustum", "cylindroid",
+                   "paraboloid", "sheet", "ellipsoid", "hemiellipsoid", "prism", "rectangular", "slab", "elliptic", "toroid"}
 axis_inventory = {"x-axis", "y-axis", "z-axis", "xy-axis", "yz-axis", "xz-axis",
                   "x axis", "y axis", "z axis", "xy axis", "yz axis", "xz axis"}
 
@@ -99,7 +100,7 @@ def tpy_process(text):
 
     concv_pattern = re.compile(r"(inside.*?\.|scoop.*?\.)")
     concv_match = concv_pattern.findall(text)
-    if concv_match is not None:
+    if len(concv_match) is not 0:
         typ_dic.update({"Concavity": ["Concave"]})
     elif re.compile(r"flat.*?\.").findall(text) is not None:
         typ_dic.update({"Concavity": ["Flat"]})
@@ -141,7 +142,7 @@ def afford_process(text):
 
 # full_text = re.compile(r"\n").sub(" ", get_full_text("Bowl_a.docx"))
 
-for paragraph in get_runs("bowl_annotation.docx"):
+for paragraph in get_runs("iphone_annotation.docx"):
     if re.match(r"\bObject", paragraph) is not None:
         lex_text = paragraph
         entity = {"Type": "Object"}
@@ -162,14 +163,14 @@ habt_process(habt_text)
 afford_process(afford_text)
 
 
-'''print(entity)
+print(entity)
 print(lex_dic)
 print(typ_dic)
 print(afford_dic)
 print(entity)
 print(embd_dic)
 
-
+'''
 print("Lex paragraph: "+lex_text)
 print("type paragraph: "+typ_text)
 print("habitate paragraph: "+habt_text)

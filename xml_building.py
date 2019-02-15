@@ -6,8 +6,8 @@ Created on 10/31/2018
 from xml.etree.ElementTree import Element, SubElement
 import xml.etree.ElementTree as etree
 from xml.dom import minidom
-from ProcessingFile import test_entity, test_lex_dic, test_typ_dic, test_habt_dic, test_afford_dic, test_embd_dic
-from ProcessingFile import entity, lex_dic, typ_dic, habt_dic, afford_dic, embd_dic
+from file_processing import test_entity, test_lex_dic, test_typ_dic, test_habt_dic, test_afford_dic, test_embd_dic
+from file_processing import entity, lex_dic, typ_dic, habt_dic, afford_dic, embd_dic
 
 
 def prettify(elem):
