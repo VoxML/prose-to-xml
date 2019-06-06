@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ascii"?>
+<VoxML xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entity Type="Object"/>
+  <Lex>
+    <Pred>bowl</Pred>
+    <Type>physobj*artifact</Type>
+  </Lex>
+  <Type>
+    <Head>paraboloid</Head>
+    <Components>
+      <Component Value="surface"/>
+      <Component Value="interior"/>
+    </Components>
+    <Concavity>Concave</Concavity>
+    <RotatSym>y-axis</RotatSym>
+  </Type>
+  <Habitat>
+    <Intrinsic>
+      <Intr Value="can be put inside and taken outside of the bowl."/>
+      <Intr Value="can be either full or empty."/>
+      <Intr Value="can be flipped upside down,"/>
+    </Intrinsic>
+  </Habitat>
+  <Afford_Str>
+    <Affordances>
+      <Affordance Formula="if i grab the  side surface   or the  bottom  surface   and  push upwards, the entire bowl and its contents (if any) will shift upwards."/>
+      <Affordance Formula="if the bowl is full and i rotate it around a horizontal axis, its contents will fall out."/>
+    </Affordances>
+  </Afford_Str>
+  <Embodiment/>
+</VoxML>
