@@ -78,12 +78,12 @@ def habt_process(text):
 
     habt_dic = defaultdict(list)
 
-    habt_pattern = re.compile(r"can\s.*?[,\.]")
+    habt_pattern = re.compile(r"\scan\s.*?[,\.]")
     habt_match = habt_pattern.findall(text)
     if len(habt_match) != 0:
         habt_lst = [["Intr", "Value"]]
         for habt in habt_match:
-            habt_lst.append([habt])
+            habt_lst.append([habt.strip()])
         habt_dic["Intrinsic"] = habt_lst
 
     return habt_dic
@@ -93,7 +93,7 @@ def afford_process(text):
 
     afford_dic = defaultdict(list)
 
-    affd_pattern = re.compile(r"\sif.*?\.")
+    affd_pattern = re.compile(r"\sif\s.*?\.")
     affd_match = affd_pattern.findall(text)
     if len(affd_match) != 0:
         affd_lst = [["Affordance", "Formula"]]
@@ -133,22 +133,22 @@ embd_dic = defaultdict(list)
 
 for paragraph in get_runs("bowl_annotation.docx"):
     if re.match(r"\bObject", paragraph) is not None:
-        lex_text = paragraph
+        lex_text = paragraph.lower()
         enty_dic["Type"] = "Object"
     if re.match(r"\bComponent", paragraph) is not None:
-        typ_text += " " + paragraph
+        typ_text += " " + paragraph.lower()
     if re.match(r"\bDescription", paragraph) is not None:
-        typ_text += " " + paragraph
+        typ_text += " " + paragraph.lower()
     if re.match(r"\bState", paragraph) is not None:
-        habt_text += " " + paragraph
-        afford_text += " " + paragraph
+        habt_text += " " + paragraph.lower()
+        afford_text += " " + paragraph.lower()
     if re.match(r"\b(Action|Activit)", paragraph) is not None:
-        habt_text += " " + paragraph
-        afford_text += " " + paragraph
+        habt_text += " " + paragraph.lower()
+        afford_text += " " + paragraph.lower()
 
 final_enty = enty_dic
-final_lex = lex_process(lex_text.lower())
-final_typ = tpy_process(typ_text.lower())
-final_habt = habt_process(habt_text.lower())
-final_afford = afford_process(afford_text.lower())
+final_lex = lex_process(lex_text)
+final_typ = tpy_process(typ_text)
+final_habt = habt_process(habt_text)
+final_afford = afford_process(afford_text)
 
