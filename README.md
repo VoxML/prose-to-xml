@@ -17,7 +17,7 @@ The annotated document is recommened to be written in the following format:
   2. When describing the shape of the object, choose words from the following inventory: 
   ```text
      prismatoid, pyramid, wedge, parallelepiped, cupola, frustum, cylindroid, 
-     ellipsoid, hemiellipsoid, bipyramid, rectangular prism, toroid, sheet
+     ellipsoid, hemiellipsoid, bipyramid, rectangular prism, toroid, sheet, paraboloid
    ```
   
   For ```Components```: 
